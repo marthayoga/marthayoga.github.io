@@ -1,0 +1,9 @@
+# Catatan desain & produk: hanya untuk pengembangan, jangan ikut dipublikasikan
+PRODUCT.md
+DESIGN.md
+.impeccable/
+
+# File sistem
+Thumbs.db
+desktop.ini
+.DS_Store

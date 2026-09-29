@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Pratinjau link (Google, WhatsApp, LinkedIn) membaca teks di bagian ini, bukan dari js/data.js. -->
+  <title>Aurellio Martha Yoga Ranendra · Laporan Asesmen Keamanan Siber</title>
+  <meta name="description" content="Portofolio keamanan siber Aurellio Martha Yoga Ranendra, mahasiswa S1 Cyber Security BINUS University. Honorable Mention ICPC 2025 Asia Jakarta, minat malware analysis.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aurellio Martha Yoga Ranendra · Laporan Asesmen Keamanan Siber">
+  <meta property="og:description" content="Mahasiswa S1 Cyber Security BINUS University. Honorable Mention ICPC 2025 Asia Jakarta, minat malware analysis.">
+  <meta property="og:url" content="https://marthayoga.github.io/">
+  <meta property="og:image" content="https://marthayoga.github.io/assets/og-image.png">
+  <link rel="canonical" href="https://marthayoga.github.io/">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1c39cf">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Martian+Mono:wdth,wght@75..112.5,400..700&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("tema");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#isi">Lewati ke isi laporan</a>
+
+  <header class="runhead">
+    <div class="runhead__in">
+      <a class="runhead__doc" href="#sampul">
+        <span class="runhead__id" data-bind="docId">RPT</span>
+        <span class="runhead__title" data-bind="name"></span>
+      </a>
+      <span class="runhead__sec" id="runSec">Sampul</span>
+      <div class="runhead__end">
+        <span class="draft-chip" data-draft hidden>Draf<span class="draft-chip__more"> · isi contoh</span></span>
+        <span class="tlp" title="Traffic Light Protocol: boleh disebarkan tanpa batasan">TLP:CLEAR</span>
+        <button class="iconbtn" id="themeBtn" type="button" aria-label="Ganti ke tema gelap">
+          <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <details class="mtoc" id="mtoc">
+          <summary class="iconbtn" aria-label="Daftar isi">
+            <svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>
+          </summary>
+          <nav class="mtoc__panel" aria-label="Daftar isi">
+            <ol class="toc__list" data-toc></ol>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <div class="watermark" data-draft hidden aria-hidden="true"><span>DRAF</span></div>
+
+  <section class="cover" id="sampul" aria-labelledby="coverName">
+    <div class="cover__in">
+      <div class="cover__letterhead">
+        <span class="mono" data-bind="docId"></span>
+        <span>Laporan asesmen kapabilitas keamanan siber</span>
+        <span>Versi <span data-bind="version"></span></span>
+      </div>
+
+      <div class="cover__main">
+        <div class="cover__id">
+          <h1 class="cover__name" id="coverName" data-bind="name"></h1>
+          <p class="cover__role" data-bind="role"></p>
+          <div class="cover__actions">
+            <a class="btn btn--solid" href="#temuan">
+              Lihat temuan
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+            </a>
+            <a class="btn btn--line" id="cvLink" href="#">
+              <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+              Unduh CV (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="stamp" id="stamp" role="img" aria-label="Bukti terlampir">
+          <span class="stamp__line">Bukti terlampir</span>
+          <span class="stamp__num"><span data-bind="evidenced"></span><span class="stamp__of">/<span data-bind="findingCount"></span></span></span>
+          <span class="stamp__line">temuan</span>
+        </div>
+      </div>
+
+      <dl class="cover__meta">
+        <div><dt>Subjek</dt><dd data-bind="subject"></dd></div>
+        <div><dt>Tanggal</dt><dd data-bind="dateLong"></dd></div>
+        <div><dt>Klasifikasi</dt><dd><span class="tlp">TLP:CLEAR</span> boleh disebarkan</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="desk">
+    <nav class="toc" aria-label="Daftar isi">
+      <p class="toc__h">Daftar isi</p>
+      <ol class="toc__list" data-toc></ol>
+    </nav>
+
+    <main class="sheet" id="isi" tabindex="-1">
+      <noscript><p class="noscript">Laporan ini butuh JavaScript untuk menampilkan isinya.</p></noscript>
+
+      <section class="sec" id="ringkasan" data-n="1" data-title="Ringkasan eksekutif" aria-labelledby="h-ringkasan">
+        <h2 class="sec__h" id="h-ringkasan"><span class="sec__n">§1</span>Ringkasan eksekutif</h2>
+        <div class="s1">
+          <div class="prose" id="summary"></div>
+          <aside class="dist" aria-labelledby="h-dist">
+            <div class="dist__head">
+              <h3 class="dist__h" id="h-dist">Distribusi temuan</h3>
+              <p class="dist__total" id="distTotal"></p>
+            </div>
+            <div class="dist__bar" id="distBar" aria-hidden="true"></div>
+            <ul class="dist__legend" id="distLegend"></ul>
+            <p class="dist__hint">Pilih tingkat untuk menyaring daftar di <a href="#temuan" data-secref="temuan">§3</a>.</p>
+          </aside>
+        </div>
+        <h3 class="sub">Profil singkat</h3>
+        <dl class="facts" id="facts"></dl>
+      </section>
+
+      <section class="sec" id="lingkup" data-n="2" data-title="Ruang lingkup dan metodologi" aria-labelledby="h-lingkup">
+        <h2 class="sec__h" id="h-lingkup"><span class="sec__n">§2</span>Ruang lingkup dan metodologi</h2>
+        <p class="lede">Bidang yang dinilai, alat yang dipakai, dan standar rujukannya. Kolom terakhir menunjuk temuan di <a class="xref" href="#temuan" data-secref="temuan">§3</a> yang menjadi bukti.</p>
+        <div class="tbl-wrap">
+          <table class="tbl tbl--stack" id="scopeTable">
+            <thead>
+              <tr><th scope="col">Bidang</th><th scope="col">Status</th><th scope="col">Alat utama</th><th scope="col">Rujukan</th><th scope="col">Bukti</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="roe">
+          <svg class="icon icon--lg" aria-hidden="true"><use href="#i-shield"/></svg>
+          <div>
+            <h3 class="roe__h">Aturan keterlibatan</h3>
+            <p id="roe"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="temuan" data-n="3" data-title="Temuan" aria-labelledby="h-temuan">
+        <h2 class="sec__h" id="h-temuan"><span class="sec__n">§3</span>Temuan</h2>
+        <p class="lede">Setiap temuan adalah prestasi atau pengalaman yang bisa dicek. Tingkatnya menunjukkan bobot, bukan tingkat bahaya.</p>
+        <details class="scale">
+          <summary>Cara membaca tingkat temuan</summary>
+          <dl class="scale__list" id="scaleList"></dl>
+        </details>
+        <div class="filters" id="filters" role="group" aria-label="Saring temuan berdasarkan tingkat"></div>
+        <p class="filter-status" id="filterStatus" aria-live="polite"></p>
+        <ol class="flist" id="findings"></ol>
+      </section>
+
+      <section class="sec" id="organisasi" data-n="4" data-title="Pengalaman organisasi" aria-labelledby="h-organisasi">
+        <h2 class="sec__h" id="h-organisasi"><span class="sec__n">§4</span>Pengalaman organisasi</h2>
+        <div class="tbl-wrap">
+          <table class="tbl tbl--stack" id="orgTable">
+            <thead>
+              <tr><th scope="col">Peran</th><th scope="col">Kegiatan</th><th scope="col">Tingkat</th><th scope="col">Tahun</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="note" id="orgNote"></p>
+      </section>
+
+      <section class="sec" id="penilaian" data-n="4" data-title="Penilaian mandiri" aria-labelledby="h-penilaian">
+        <h2 class="sec__h" id="h-penilaian"><span class="sec__n">§4</span>Penilaian mandiri</h2>
+        <p class="lede">Nilai diisi sendiri oleh kandidat pada skala 1–10, sama seperti formulir kampus. Satu bintang bernilai 2 poin, setengah bintang 1 poin. Kolom terakhir menjelaskan dasar tiap nilai.</p>
+        <div class="tbl-wrap">
+          <table class="tbl tbl--stack" id="skillTable">
+            <thead>
+              <tr><th scope="col">Keterampilan</th><th scope="col">Jenis</th><th scope="col">Nilai</th><th scope="col">Dasar penilaian</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="writeup" data-n="4" data-title="Bukti konsep: writeup" aria-labelledby="h-writeup">
+        <h2 class="sec__h" id="h-writeup"><span class="sec__n">§4</span>Bukti konsep: writeup</h2>
+        <p class="lede">Tulisan pembahasan soal CTF. Writeup menunjukkan cara berpikir, bukan cuma hasil akhirnya.</p>
+        <div id="featured"></div>
+        <ol class="wlist" id="writeups"></ol>
+      </section>
+
+      <section class="sec" id="alat" data-n="5" data-title="Alat dan proyek" aria-labelledby="h-alat">
+        <h2 class="sec__h" id="h-alat"><span class="sec__n">§5</span>Alat dan proyek</h2>
+        <div class="tbl-wrap">
+          <table class="tbl tbl--stack" id="toolTable">
+            <thead>
+              <tr><th scope="col">Nama</th><th scope="col">Fungsi</th><th scope="col">Teknologi</th><th scope="col" class="num">Bintang</th><th scope="col">Repositori</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="sertifikasi" data-n="6" data-title="Sertifikat dan pelatihan" aria-labelledby="h-sertifikasi">
+        <h2 class="sec__h" id="h-sertifikasi"><span class="sec__n">§6</span>Sertifikat dan pelatihan</h2>
+        <div class="tbl-wrap">
+          <table class="tbl tbl--stack" id="certTable">
+            <thead>
+              <tr><th scope="col">Nama</th><th scope="col">Penerbit</th><th scope="col">Terbit</th><th scope="col">Verifikasi</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="kronologi" data-n="7" data-title="Kronologi" aria-labelledby="h-kronologi">
+        <h2 class="sec__h" id="h-kronologi"><span class="sec__n">§7</span>Kronologi</h2>
+        <ol class="log" id="timeline"></ol>
+      </section>
+
+      <section class="sec" id="rencana" data-n="8" data-title="Rencana tindak lanjut" aria-labelledby="h-rencana">
+        <h2 class="sec__h" id="h-rencana"><span class="sec__n">§8</span>Rencana tindak lanjut</h2>
+        <p class="lede">Target belajar berikutnya. Setiap target yang tercapai akan pindah ke daftar temuan beserta buktinya.</p>
+        <ol class="plan" id="plan"></ol>
+      </section>
+
+      <section class="sec" id="kontak" data-n="9" data-title="Rekomendasi dan kontak" aria-labelledby="h-kontak">
+        <h2 class="sec__h" id="h-kontak"><span class="sec__n">§9</span>Rekomendasi dan kontak</h2>
+        <ol class="recs" id="recs"></ol>
+
+        <h3 class="sub">Kontak</h3>
+        <dl class="contact" id="contact"></dl>
+
+        <div class="signoff">
+          <div class="sign">
+            <p class="sign__label">Disusun dan disetujui oleh</p>
+            <p class="sign__name" data-bind="name"></p>
+            <p class="sign__meta"><span data-bind="role"></span></p>
+            <p class="sign__meta" data-bind="signPlace"></p>
+          </div>
+          <div class="control">
+            <h3 class="sub sub--flush">Kontrol dokumen</h3>
+            <div class="tbl-wrap">
+              <table class="tbl tbl--compact" id="historyTable">
+                <thead><tr><th scope="col">Versi</th><th scope="col">Tanggal</th><th scope="col">Catatan</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="hash">
+          <div class="hash__text">
+            <h3 class="hash__h">Integritas dokumen</h3>
+            <p>Sidik jari SHA-256 dari isi laporan ini, dihitung ulang setiap kali halaman dibuka. Kalau isinya diubah satu karakter saja, sidik jarinya ikut berubah.</p>
+          </div>
+          <div class="hash__val">
+            <code id="hashVal">menghitung…</code>
+            <button class="copybtn" type="button" data-copy-target="hashVal">
+              <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+              <span>Salin</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <p class="endmark">Akhir laporan</p>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="foot__in">
+      <span>© <span data-bind="year"></span> <span data-bind="name"></span></span>
+      <span>Dibuat dengan HTML, CSS, dan JavaScript. Tanpa pelacak.</span>
+    </div>
+  </footer>
+
+  <p class="sr-only" id="announcer" aria-live="polite"></p>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+      <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M15 5.5V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h.5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6.5a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7.5Z"/><path d="M14 3v4.5h4.5M9 13h6M9 16.5h6"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5.5c0 4.6-3 8-7 9.5-4-1.5-7-4.9-7-9.5V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.9 14.8 8.6l6.3.9-4.55 4.45 1.07 6.27L12 17.25l-5.62 2.97 1.07-6.27L2.9 9.5l6.3-.9Z"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6.5h16M4 12h16M4 17.5h10"/></symbol>
+    </defs>
+  </svg>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
