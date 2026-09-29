@@ -1,4 +1,4 @@
-# Portofolio: Laporan Asesmen Keamanan Siber
+# Portofolio: Aurellio Martha Yoga Ranendra
 
 Portofolio keamanan siber yang disusun seperti laporan penetration test. HTML, CSS, dan JavaScript biasa, tanpa build.
 
@@ -24,5 +24,3 @@ Tulis `F-01` atau `§4` di dalam teks, nanti otomatis jadi tautan ke temuan atau
 - **GitHub Pages:** buat repo, upload semua file, buka Settings → Pages → pilih branch `main`.
 - **Netlify:** buka app.netlify.com/drop, seret folder ini ke sana.
 - **Vercel:** import repo GitHub-nya, tanpa pengaturan tambahan.
-
-Folder `.impeccable/`, `PRODUCT.md`, dan `DESIGN.md` adalah catatan desain. Tidak dipakai website, boleh ikut di-upload atau tidak.
